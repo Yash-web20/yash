@@ -1,30 +1,27 @@
 {
-    "apiVersion": "2018-06-01",
-    "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "virtualMachineName/config-app",
-    "location": "eastus",
+    "apiVersion": "2015-06-15",
+    "type": "extensions",
+    "name": "config-app",
+    "location": "[resourceGroup().location]",
     "dependsOn": [
-        "Microsoft.Compute/virtualMachines/wvd-poc-vm-0"
+    "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
+    "[variables('musicstoresqlName')]"
     ],
     "tags": {
-        "displayName": "config-app"
+    "displayName": "config-app"
     },
     "properties": {
-        "publisher": "Microsoft.Compute",
-        "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.10",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-            "timestamp":123456789
-        },
-        "protectedSettings": {
-            "commandToExecute": "powershell.exe vmExtension.ps1",
-            "storageAccountName": "nistpocfilesharesa",
-            "storageAccountKey": "Kq1ZTjE1gaQtkzN0mOTGuftmC6c41YivoGSeQKoukLpFhRDkHf3t5ueJR6IbUVmlRcUSycFnpRbuApPxcRVqSg==",
-            "managedIdentity" : {},
-            "fileUris": [
-                "https://nistpocfilesharesa.blob.core.windows.net/scripts/vmExtension.ps1"
-            ]
-        }
+    "publisher": "Microsoft.Compute",
+    "type": "CustomScriptExtension",
+    "typeHandlerVersion": "1.9",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+        "fileUris": [
+        "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1"
+        ]
+    },
+    "protectedSettings": {
+        "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 -user ',parameters('adminUsername'),' -password ',parameters('adminPassword'),' -sqlserver ',variables('musicstoresqlName'),'.database.windows.net')]"
+    }
     }
 }
