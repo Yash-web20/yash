@@ -1,20 +1,30 @@
 {
+    "apiVersion": "2018-06-01",
     "type": "Microsoft.Compute/virtualMachines/extensions",
-    "apiVersion": "2021-04-01",
     "name": "virtualMachineName/config-app",
     "location": "eastus",
     "dependsOn": [
         "Microsoft.Compute/virtualMachines/wvd-poc-vm-0"
     ],
+    "tags": {
+        "displayName": "config-app"
+    },
     "properties": {
-        "publisher": "Microsoft.Azure.Extensions",
-        "type": "CustomScript",
-        "typeHandlerVersion": "2.0",
+        "publisher": "Microsoft.Compute",
+        "type": "CustomScriptExtension",
+        "typeHandlerVersion": "1.10",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "fileUris": ["https://github.com/yashp2098/yash/blob/master/vmExtension.ps1"],
-            "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1 vmExtension.ps1"
+            "timestamp":123456789
+        },
+        "protectedSettings": {
+            "commandToExecute": "powershell.exe vmExtension.ps1",
+            "storageAccountName": "nistpocfilesharesa",
+            "storageAccountKey": "Kq1ZTjE1gaQtkzN0mOTGuftmC6c41YivoGSeQKoukLpFhRDkHf3t5ueJR6IbUVmlRcUSycFnpRbuApPxcRVqSg==",
+            "managedIdentity" : {},
+            "fileUris": [
+                "https://nistpocfilesharesa.blob.core.windows.net/scripts/vmExtension.ps1"
+            ]
         }
     }
 }
-   
