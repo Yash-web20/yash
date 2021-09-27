@@ -12,9 +12,9 @@
             "apiVersion": "2018-06-01",
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "virtualMachineName/config-app",
-            "location": "[resourceGroup().location]",
+            "location": "eastus",
             "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'),copyindex())]"
+                "[concat('Microsoft.Compute/virtualMachines/', 'wvd-poc-vm-0',copyindex())]"
             ],
             "tags": {
                 "displayName": "config-app"
