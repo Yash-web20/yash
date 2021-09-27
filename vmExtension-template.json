@@ -7,9 +7,9 @@
         "Microsoft.Compute/virtualMachines/wvd-poc-vm-0"
     ],
     "properties": {
-        "publisher": "Microsoft.Compute",
-        "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.7",
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": ["https://github.com/yashp2098/yash/blob/master/vmExtension.ps1"],
