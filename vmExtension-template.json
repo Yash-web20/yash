@@ -28,9 +28,8 @@
                     "timestamp":123456789
                 },
                 "protectedSettings": {
-                    "fileUris": [
-                        "https://github.com/yashp2098/yash/blob/master/vmExtension.ps1"
-                    ]
+                    "fileUris": ["https://github.com/yashp2098/yash/blob/master/vmExtension.ps1"],
+                    "commandToExecute": "powershell.exe vmExtension.ps1"
                 }
             }
         }
