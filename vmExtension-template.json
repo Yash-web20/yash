@@ -4,7 +4,7 @@
     "name": "virtualMachineName/config-app",
     "location": "eastus",
     "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', 'wvd-poc-vm-0',copyindex())]"
+        "Microsoft.Compute/virtualMachines/wvd-poc-vm-0"
     ],
     "tags": {
         "displayName": "config-app"
@@ -16,7 +16,7 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": ["https://github.com/yashp2098/yash/blob/master/vmExtension.ps1"],
-            "commandToExecute": "powershell.exe vmExtension.ps1"
+            "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1 vmExtension.ps1"
         }
     }
 }
