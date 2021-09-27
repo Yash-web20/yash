@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName":{
-            "value": "wvd-poc-vm-0"
+            "value": "wvd-poc-vm"
         }
     }
 }
