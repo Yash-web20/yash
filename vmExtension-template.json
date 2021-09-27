@@ -14,7 +14,7 @@
             "name": "virtualMachineName/config-app",
             "location": "[resourceGroup().location]",
             "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]"
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'),copyindex())]"
             ],
             "tags": {
                 "displayName": "config-app"
@@ -28,12 +28,8 @@
                     "timestamp":123456789
                 },
                 "protectedSettings": {
-                    "commandToExecute": "myExecutionCommand",
-                    "storageAccountName": "myStorageAccountName",
-                    "storageAccountKey": "myStorageAccountKey",
-                    "managedIdentity" : {},
                     "fileUris": [
-                        "script location"
+                        "https://github.com/yashp2098/yash/blob/master/vmExtension.ps1"
                     ]
                 }
             }
