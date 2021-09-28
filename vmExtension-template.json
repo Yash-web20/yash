@@ -27,6 +27,7 @@
                 "type": "CustomScriptExtension",
                 "typeHandlerVersion": "1.10",
                 "autoUpgradeMinorVersion": true,
+                "location":"[parameters('location')]",
                 "settings": {
                     "timestamp":123456789
                 },
