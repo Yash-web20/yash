@@ -1,5 +1,5 @@
 {
-    "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName":{
@@ -17,12 +17,11 @@
     "variables": {},
     "resources": [
         {
-            "apiVersion": "2021-04-01",
+            "apiVersion": "2018-06-01",
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "virtualMachineName/config-app",
-            "location": "[parameters('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'),copyindex())]"
             ],
             "tags": {
                 "displayName": "config-app"
@@ -30,9 +29,8 @@
             "properties": {
                 "publisher": "Microsoft.Compute",
                 "type": "CustomScriptExtension",
-                "typeHandlerVersion": "1.7",
+                "typeHandlerVersion": "1.10",
                 "autoUpgradeMinorVersion": true,
-                "location":"[parameters('location')]",
                 "settings": {
                     "timestamp":123456789
                 },
