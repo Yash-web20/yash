@@ -12,7 +12,7 @@
             "apiVersion": "2018-06-01",
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "virtualMachineName/config-app",
-            "location": "[resourceGroup().location]",
+            "location": "eastus",
             "dependsOn": [
                 "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'),copyindex())]"
             ],
