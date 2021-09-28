@@ -4,6 +4,9 @@
     "parameters": {
         "vmName":{
             "value": "wvd-poc-vm"
+        },
+        "location":{
+            "value": "eastus"
         }
     }
 }
