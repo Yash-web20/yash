@@ -1,5 +1,5 @@
 {
-    "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName":{
@@ -36,7 +36,7 @@
                     "timestamp":123456789
                 },
                 "protectedSettings": {
-                    "fileUris": "https://github.com/yashp2098/yash/blob/master/vmExtension.ps1",
+                    "fileUris": "https://raw.githubusercontent.com/yashp2098/yash/master/vmExtension.ps1",
                     "commandToExecute": "powershell.exe vmExtension.ps1"
                 }
             }
