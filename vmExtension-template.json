@@ -20,7 +20,7 @@
             "name": "virtualMachineName/config-app",
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "apiVersion": "2018-06-01",
-            "location":"East US",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'),copyindex())]"
             ],
