@@ -6,18 +6,23 @@
             "type": "string"
         },
         "location":{
-            "type": "string"
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "Location for all resources."
+            }
+            
         }
     },
     "variables": {},
     "resources": [
         {
-            "apiVersion": "2018-06-01",
+            "apiVersion": "2021-04-01",
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "virtualMachineName/config-app",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'),copyindex())]"
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
             ],
             "tags": {
                 "displayName": "config-app"
@@ -25,7 +30,7 @@
             "properties": {
                 "publisher": "Microsoft.Compute",
                 "type": "CustomScriptExtension",
-                "typeHandlerVersion": "1.10",
+                "typeHandlerVersion": "1.7",
                 "autoUpgradeMinorVersion": true,
                 "location":"[parameters('location')]",
                 "settings": {
