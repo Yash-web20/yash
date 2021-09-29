@@ -1,0 +1,1 @@
+New-ItemProperty -Path "HKLM:\SOFTWARE\FsLogix\Profiles" -Name Disable -PropertyType DWORD -Value 1
