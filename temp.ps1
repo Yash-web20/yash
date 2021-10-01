@@ -1,4 +1,4 @@
-Set-Location C:\Users\itadmin
+Set-Location C:\Users\itadmin\
 
 $connectTestResult = Test-NetConnection -ComputerName nistpocfilesharesa.file.core.windows.net -Port 445
 if ($connectTestResult.TcpTestSucceeded) {
