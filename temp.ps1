@@ -1,9 +1,5 @@
-Set-Location C:\Users\itadmin\
+new-eventlog -LogName "WVD" -Source "WVD"
 
-$connectTestResult = Test-NetConnection -ComputerName nistpocfilesharesa.file.core.windows.net -Port 445
-if ($connectTestResult.TcpTestSucceeded) {
-    # Mount the drive
-    New-PSDrive -Name Z -PSProvider FileSystem -Root "\\nistpocfilesharesa.file.core.windows.net\profiles" -Persist
-} else {
-    Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
-}
+$msg = $env:UserName
+
+Write-EventLog -LogName "WVD" -Source "WVD" -EventID 3001 -EntryType Information -Message $msg -Category 1 -RawData 10,20
