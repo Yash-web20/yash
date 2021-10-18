@@ -1,3 +1,4 @@
+Start-Process powershell -verb runas
 new-eventlog -LogName "WVD" -Source "WVD"
 try {
     $connectTestResult = Test-NetConnection -ComputerName nistpocfilesharesa.file.core.windows.net -Port 445
