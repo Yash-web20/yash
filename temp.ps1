@@ -1,5 +1,5 @@
 $securePassword = ConvertTo-SecureString "dRoFOzU!1D4@j&D4*#tR" -AsPlainText -force
-$credential = New-Object System.Management.Automation.PsCredential("domain\itadmin@mobiuslogic.com",$securePassword)
+$credential = New-Object System.Management.Automation.PsCredential("mobiuslogic.com\itadmin",$securePassword)
 $session = New-PSSession -computername hostname -credential $credential
 $command = {$connectTestResult = Test-NetConnection -ComputerName nistpocfilesharesa.file.core.windows.net -Port 445
     if ($connectTestResult.TcpTestSucceeded) {
