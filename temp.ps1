@@ -1,6 +1,5 @@
- Start-Process powershell -Verb runAs
- # Install chocolatey
- Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-    
- # install FSLogix with chocolatey
- choco install fslogix -y
+$Action = New-ScheduledTaskAction -Execute 'PowerShell.exe' -Argument '-File C:\TestPowershell\test.ps1'
+$Trigger = New-ScheduledTaskTrigger -AtStartup
+$Settings = New-ScheduledTaskSettingsSet
+$Task = New-ScheduledTask -Action $Action -Trigger $Trigger -Settings $Settings
+Register-ScheduledTask -TaskName 'Test PowerShell Script' -User 'itadmin@mobiuslogic.com' -Password 'dRoFOzU!1D4@j&D4*#tR' -InputObject $Task
