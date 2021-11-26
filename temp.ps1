@@ -1,4 +1,4 @@
-$Action = New-ScheduledTaskAction -Execute 'PowerShell.exe' -Argument '-File C:\TestPowershell\test.ps1'
+$Action = New-ScheduledTaskAction -Execute 'PowerShell.exe' -Argument '-File C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.12\Downloads\0\vmExtension.ps1'
 $Trigger = New-ScheduledTaskTrigger -AtStartup
 $Settings = New-ScheduledTaskSettingsSet
 $Task = New-ScheduledTask -Action $Action -Trigger $Trigger -Settings $Settings
