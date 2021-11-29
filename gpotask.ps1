@@ -1,4 +1,4 @@
-$Action = New-ScheduledTaskAction -Execute 'PowerShell.exe' -Argument '-File C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.12\Downloads\0\gpo.ps1'
+$Action = New-ScheduledTaskAction -Execute 'powershell_ise.exe' -Argument '-File C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.12\Downloads\0\gpo.ps1'
 $Trigger = New-ScheduledTaskTrigger -Daily -At 2pm
 $Settings = New-ScheduledTaskSettingsSet
 $Task = New-ScheduledTask -Action $Action -Trigger $Trigger -Settings $Settings
